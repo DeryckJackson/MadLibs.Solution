@@ -5,6 +5,10 @@ namespace MadLibs.Controllers
 {
   public class HomeController : Controller
   {
+    [Route("/")]
+
+    public ActionResult Directory() { return View(); }
+
     [Route("/form")]
     public ActionResult Form() { return View(); }
 
