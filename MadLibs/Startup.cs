@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FriendLetter
+namespace MadLibs
 {
   public class Startup
   {
@@ -21,7 +21,6 @@ namespace FriendLetter
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
-      app.UseDeveloperExceptionPage();
     }
 
     public void Configure(IApplicationBuilder app)
@@ -37,6 +36,8 @@ namespace FriendLetter
       {
         await context.Response.WriteAsync("Hello World!");
       });
+
+      app.UseDeveloperExceptionPage();
     }
   }
 }

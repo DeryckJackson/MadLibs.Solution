@@ -1,36 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
-using FriendLetter.Models;
+using MadLibs.Models;
 
-namespace FriendLetter.Controllers
+namespace MadLibs.Controllers
 {
   public class HomeController : Controller
   {
-
-    [Route("/hello")]
-    public string Hello() { return "Hello friend!"; }
-
-    [Route("/goodbye")]
-    public string Goodbye() { return "Goodbye friend."; }
-
-    [Route("/")]
-    public ActionResult Letter() 
-    {
-      LetterVariable myLetterVariable = new LetterVariable();
-      myLetterVariable.Recipient = "Lina";
-      myLetterVariable.Sender = "Jasmine";
-      return View(myLetterVariable);
-    }
-
     [Route("/form")]
     public ActionResult Form() { return View(); }
 
-    [Route("/postcard")]
-    public ActionResult Postcard(string recipient, string sender)
+    [Route("/madlibs")]
+    public ActionResult MadLibs(string person1, string person2, string animal, string exclamation, string adverb, string verb, string adjective, string noun )
     {
-      LetterVariable myLetterVariable = new LetterVariable();
-      myLetterVariable.Recipient = recipient;
-      myLetterVariable.Sender = sender;
-      return View(myLetterVariable);
+      MadLibsVariable myMadLibsVariable = new MadLibsVariable();
+      myMadLibsVariable.Person1 = person1;
+      myMadLibsVariable.Person2 = person2;
+      myMadLibsVariable.Animal = animal;
+      myMadLibsVariable.Exclamation = exclamation;
+      myMadLibsVariable.Adverb = adverb;
+      myMadLibsVariable.Verb = verb;
+      myMadLibsVariable.Adjective = adjective;
+      myMadLibsVariable.Noun = noun;
+
+      return View(myMadLibsVariable);
     }
 
 
